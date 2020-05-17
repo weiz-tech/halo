@@ -3,6 +3,7 @@ plugins {
     id "io.spring.dependency-management" version "1.0.9.RELEASE"
     id "checkstyle"
     id "java"
+    id "idea"
 }
 
 group = "run.halo.app"
@@ -142,4 +143,25 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 
     developmentOnly "org.springframework.boot:spring-boot-devtools"
+}
+jar {
+    String someString = ''
+    configurations.runtime.each {someString = someString + " lib\\"+it.name} //遍历项目的所有依赖的jar包赋值给变量someString
+    manifest {
+        attributes 'Main-Class': 'run.halo.app.Application'
+        attributes 'Class-Path': someString
+    }
+}
+
+
+task clearPj(type:Delete){
+    delete 'build','target'
+}
+task copyJar(type:Copy){
+    from configurations.runtime
+    into ('build/libs/lib')
+}
+task release(type: Copy,dependsOn: [build,copyJar]) {
+    from  'conf'
+    into ('build/libs/halo/conf')
 }
