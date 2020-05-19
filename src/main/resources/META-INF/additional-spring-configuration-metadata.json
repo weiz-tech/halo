@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "halo.mode",
+      "type": "java.lang.String",
+      "description": "Description for halo.mode."
+  }
+] }
