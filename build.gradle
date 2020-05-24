@@ -76,6 +76,7 @@ ext {
     jedisVersion= '3.3.0'
     zxingVersion = "3.4.0"
     huaweiObsVersion = "3.19.7"
+    jasyptVersion = "3.0.2"
 }
 
 dependencies {
@@ -119,6 +120,7 @@ dependencies {
     implementation "com.vladsch.flexmark:flexmark-ext-yaml-front-matter:$flexmarkVersion"
     implementation "com.vladsch.flexmark:flexmark-ext-gitlab:$flexmarkVersion"
 //    implementation "com.vladsch.flexmark:flexmark-html-parser:$flexmarkVersion"
+    implementation "com.github.ulisesbocchio:jasypt-spring-boot:${jasyptVersion}"
 
     implementation "net.coobird:thumbnailator:$thumbnailatorVersion"
     implementation "net.sf.image4j:image4j:$image4jVersion"

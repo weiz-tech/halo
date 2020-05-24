@@ -49,6 +49,6 @@ halo:
   doc-disabled: false
   production-env: false
   auth-enabled: true
-  mode: development
+  mode: DEVELOPMENT
   workDir: ${user.home}/halo-dev/
   cache: memory

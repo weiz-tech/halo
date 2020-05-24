@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 80
   forward-headers-strategy: native
   compression:
     enabled: false
@@ -37,5 +37,5 @@ logging:
 halo:
   doc-disabled: false
   auth-enable: false
-  mode: prod
+  mode: PRODUCTION
   workDir: ${user.home}/halo/
