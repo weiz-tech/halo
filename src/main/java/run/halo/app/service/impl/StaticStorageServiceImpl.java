@@ -22,7 +22,10 @@ import run.halo.app.utils.FileUtils;
 import javax.activation.MimetypesFileTypeMap;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -42,7 +45,7 @@ public class StaticStorageServiceImpl implements StaticStorageService, Applicati
     private final ApplicationEventPublisher eventPublisher;
 
     public StaticStorageServiceImpl(HaloProperties haloProperties,
-                                    ApplicationEventPublisher eventPublisher) throws IOException {
+            ApplicationEventPublisher eventPublisher) throws IOException {
         staticDir = Paths.get(haloProperties.getWorkDir(), STATIC_FOLDER);
         this.eventPublisher = eventPublisher;
         FileUtils.createIfAbsent(staticDir);
